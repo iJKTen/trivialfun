@@ -6,11 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# admin_user = User.where(:role => "super_user")
-# if admin_user.count == 0
-#   User.create(:email => "jk.projects@outlook.com", :role => "super_user", :password => "123456", :password_confirmation => "obligee77580,hashers")
-# end
-
 Questionnaire.delete_all
 Category.delete_all
 tiebreaker = Category.create(:title => 'Tiebreaker')
