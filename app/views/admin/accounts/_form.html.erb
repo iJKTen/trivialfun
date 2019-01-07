@@ -1,0 +1,41 @@
+<h1 class="h3 mb-3 font-weight-normal">
+  Back to <%= link_to 'All Accounts', admin_venue_accounts_path %>
+</h1>
+
+<% if @venue.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h2>
+      <%= pluralize(@venue.errors.count, "error") %> prohibited this account from being saved:
+    </h2>
+    <ul>
+      <% @venue.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control", required: "true" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :role %>
+      <%= select :user, :role, options_for_select([['admin'], ['host']]),
+                        class: "form-control", required: "true" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control", required: "true" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: "form-control", required: "true" %>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.submit "Submit", class: "btn btn-lg btn-primary btn-block" %>
+</div>

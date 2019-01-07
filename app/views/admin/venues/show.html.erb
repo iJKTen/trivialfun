@@ -1,0 +1,19 @@
+<section class="section-form" aria-label="venue">
+  <h1 class="h3 mb-3 font-weight-normal">
+    Back to <%= link_to 'All Venues', admin_venues_path %>
+  </h1>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= @venue.name %></h5>
+      <p>
+        <%= @venue.address %><br />
+        <%= @venue.phone %><br />
+      </p>
+      <p>
+        <%= @venue.total_rounds_per_game %> rounds per game<br />
+        <%= @venue.total_questions_per_round %> questions per round<br />
+        <%= @venue.maximum_players_per_team %> maximum players per team<br />
+      </p>
+    </div>
+  </div>
+</section>

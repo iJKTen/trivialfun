@@ -1,0 +1,32 @@
+<section>
+  <h1 class="h3 mb-3 font-weight-normal">
+    Showing teams for <%= link_to @game.title, admin_venue_games_path(@game.venue) %>
+  </h1>
+  <% if !@game.won %>
+    <p><%= link_to 'Create team', new_admin_game_team_path %></p>
+  <% end %>
+
+  <%= render :partial => "/forms/flash" %>
+
+  <% @teams.each do |team| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= team.name %></h5>
+        <p>
+          has <%= pluralize(team.players.count, "player") %>
+          <% if team.score > 0 %>
+            with score <%= team.score %>
+          <% end %>
+        </p>
+        <%= link_to 'Show team', admin_team_path(team), class: "card-link" %>
+        <% if !@game.won %>
+          <%= link_to 'Edit team', edit_admin_team_path(team), class: "card-link" %>
+          <%= link_to 'Answer', answer_admin_team_path(team), class: "card-link" %>
+          <%= link_to 'Delete team', admin_team_path(team),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: "card-link link-danger"  %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</section>

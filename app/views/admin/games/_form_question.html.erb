@@ -1,0 +1,14 @@
+<div class="border rounded m-2 p-2">
+  <%= round_form.fields_for :questions do |question_form| %>
+    <%= question_form.hidden_field :order %>
+    <%= question_form.hidden_field :id %>
+    <div class="form-group">
+      <%= question_form.label :title, "Question" %>
+      <%= question_form.text_area :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= question_form.label :answer %>
+      <%= question_form.text_field :answer, class: "form-control" %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+<section>
+  <article>
+    <p>
+      Winner
+    </p>
+  </article>
+</section>
+<section>
+  <article>
+    <p>
+      <% @game.teams.each do |team| %>
+        <%= team.name %> Score <%= team.score %><br>
+      <% end %>
+    </p>
+  </article>
+</section>

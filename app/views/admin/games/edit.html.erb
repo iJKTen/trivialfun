@@ -1,0 +1,3 @@
+<%= form_with model: @game, url: admin_game_path, local: true do |f| %>
+  <%= render :partial => "form_game", :locals => { :f => f } %>
+<% end %>

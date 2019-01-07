@@ -1,0 +1,41 @@
+<h1 class="h3 mb-3 font-weight-normal">
+
+  Back to <%= link_to 'All Games', admin_venue_games_path(@game.venue) %>
+</h1>
+
+<% if @game.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h2>
+      <%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:
+    </h2>
+    <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">
+      <% if @game.id.nil? %>
+        Create a new game
+      <% else %>
+        Edit an existing game
+      <% end %>
+    </h5>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control", required: "true" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :date %>
+      <%= f.date_field :date, class: "form-control", required: "true" %>
+    </div>
+    <%= render :partial => "form_game_round", :locals => { :f => f } %>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.submit "Submit", class: "btn btn-lg btn-primary btn-block" %>
+</div>

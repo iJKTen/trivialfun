@@ -1,0 +1,3 @@
+<%= form_for @team, as: :team,  url: admin_game_teams_path, local: true do |f| %>
+  <%= render :partial => "form_team", :locals => { :f => f } %>
+<% end %>

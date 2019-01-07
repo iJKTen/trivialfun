@@ -1,0 +1,30 @@
+<section>
+  <h1 class="h3 mb-3 font-weight-normal">
+    Showing games for <%= link_to @venue.name, admin_venues_path %>
+  </h1>
+  <p><%= link_to 'Create game', new_admin_venue_game_path %></p>
+
+  <%= render :partial => "/forms/flash" %>
+
+  <% @games.each do |game| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= game.title %></h5>
+        <% if game.won %>
+          <p>Played on <%= game.date %></p>
+        <% else %>
+          <p>Scheduled on <%= game.date %></p>
+        <% end %>
+        <%= link_to 'Teams', admin_game_teams_path(game), class: "card-link" %>
+        <%= link_to 'Show game', admin_game_path(game), class: "card-link" %>
+        <% if !game.won %>
+          <%= link_to 'Play game', play_admin_game_path(game), class: "card-link", target: "_blank" %>
+          <%= link_to 'Edit game', edit_admin_game_path(game), class: "card-link" %>
+          <%= link_to 'Delete game', admin_game_path(game),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: "card-link link-danger"  %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</section>

@@ -1,0 +1,60 @@
+<h1 class="h3 mb-3 font-weight-normal">
+  Showing Statistics for <%= link_to @venue.name, admin_venues_path %>
+</h1>
+
+<div class="card-group">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Team with Most Wins</h5>
+      <% @most_wins_by_teams.keys.each do |key| %>
+        <p>
+          <%= key %> won <%= pluralize(@most_wins_by_teams[key], "time") %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Player with Most Wins</h5>
+      <% @most_wins_by_player.keys.each do |key| %>
+        <p>
+          <%= key %> won <%= pluralize(@most_wins_by_player[key], "time") %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Player with Most Plays</h5>
+      <% @most_player_played.keys.each do |key| %>
+        <p>
+          <%= key %> played <%= pluralize(@most_player_played[key], "time") %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+  <% if @most_tiebreaker_playing_teams.keys.count > 0 %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Player with Most Plays</h5>
+        <% @most_tiebreaker_playing_teams.keys.each do |key| %>
+          <p>
+            <%= key %> played tiebreaker round <%= pluralize(@most_tiebreaker_playing_teams[key], "time") %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <% if @most_tiebreaker_winning_teams.keys.count > 0 %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Player with Most Plays</h5>
+        <% @most_tiebreaker_winning_teams.keys.each do |key| %>
+          <p>
+            <%= key %> won tiebreaker round <%= pluralize(@most_tiebreaker_winning_teams[key], "time") %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

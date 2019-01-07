@@ -1,0 +1,28 @@
+<section aria-label="navigation">
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom shadow-sm">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <h5 class="my-0 mr-md-auto font-weight-normal">
+      <a class="p-2" href="/">Trivial Fun</a>
+    </h5>
+    <% if user_signed_in? %>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <ul class="nav">
+          <li class="nav-item">
+
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign out', destroy_user_session_url, method: :delete,
+                class: "btn bg-danger text-white" %>
+          </li>
+        </ul>
+      </nav>
+    <% else %>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <%= link_to 'Sign in', new_user_session_url,
+            class: "btn btn-outline-primary" %>
+      </nav>
+    <% end %>
+  </div>
+</section>

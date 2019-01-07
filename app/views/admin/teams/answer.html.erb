@@ -1,0 +1,24 @@
+<h1 class="h3 mb-3 font-weight-normal">
+  Take answers for <%= link_to @team.name, admin_game_teams_path(@team.game) %>
+</h1>
+<%= form_with model: @team, url: answered_admin_team_path, local: true do |f| %>
+  <div class="card-group mb-3">
+    <div class="card p-3">
+      <p><strong><%= f.object.name %></strong> - Score <%= f.object.score %></p>
+      <%= f.fields_for :answers do |answer_form| %>
+        <%= answer_form.fields_for :question do |question_form| %>
+          <div class="card-group mb-3">
+            <div class="card p-3">
+              <p><%= question_form.object.title %></p>
+              <p><%= answer_form.text_field :answer %> Correct Answer: <%= question_form.object.answer %></p>
+              <p><%= answer_form.check_box :correct %> Check if answered correctly</p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <% if !@team.game.won %>
+    <%= f.submit "Submit", class: "btn btn-lg btn-primary btn-block" %>
+  <% end %>
+<% end %>

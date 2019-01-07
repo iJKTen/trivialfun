@@ -1,0 +1,21 @@
+<section>
+  <article>
+    <p>
+      <% @game.teams_tied.each do |team| %>
+        <%= team.name %> Score <%= team.score %><br />
+      <% end %>
+    </p>
+  </article>
+</section>
+<% if @question.order == 1 %>
+<section>
+  <article>
+    <p>Tiebreaker</p>
+  </article>
+</section>
+<% end %>
+<section>
+  <article>
+    <p><%= @question.title %></p>
+  </article>
+</section>

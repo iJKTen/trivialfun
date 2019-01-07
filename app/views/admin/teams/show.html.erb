@@ -1,0 +1,20 @@
+<section class="section-form" aria-label="venue">
+  <h1 class="h3 mb-3 font-weight-normal">
+    Showing players for <%= link_to @team.name, admin_game_teams_path(@team.game) %>
+  </h1>
+  <div class="card">
+    <div class="card-body">
+      <% @team.players.each do |player| %>
+        <h5 class="card-title"><%= player.roster_name %></h5>
+        <p>
+          <%= player.roster_email %><br />
+          <% if player.subscription_status %>
+            Subscribed: Yes
+          <% else %>
+            Subscribed: No
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</section>

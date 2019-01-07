@@ -1,0 +1,53 @@
+<section>
+  <article>
+    <p>Rules</p>
+  </article>
+</section>
+<section>
+  <article>
+    <p>Only 4 players per team</p>
+  </article>
+</section>
+<section>
+  <article>
+    <p>You have 2 minutes to answer</p>
+  </article>
+</section>
+<section>
+  <article>
+    <p>Cell phone use duirng the game will result in a wrong answer</p>
+  </article>
+</section>
+<section class="categories">
+  <article>
+    <% @game.rounds.each do |round| %>
+      <p>
+        <%= round.title %>
+        </p>
+    <% end %>
+  </article>
+</section>
+<% @game.rounds.each do |round| %>
+  <section>
+    <article>
+      <p><%= round.title %></p>
+    </article>
+  </section>
+  <% round.questions.each do |question| %>
+    <section class="question">
+      <article>
+        <p><%= question.title %></p>
+      </article>
+    </section>
+    <div class="progress-bar">
+       <span class="progress-value red" style="width: 100%;"></span>
+    </div>
+  <% end %>
+<% end %>
+<section>
+  <article>
+    <p>
+      That's All Folks!
+    </p>
+  </article>
+</section>

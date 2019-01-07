@@ -1,0 +1,67 @@
+<h1 class="h3 mb-3 font-weight-normal">
+  <% if @team.name.nil? %>
+    Create players for <%= link_to @team.game.title, admin_game_teams_path(@team.game) %>
+  <% else %>
+    Edit players for <%= link_to @team.name, admin_game_teams_path(@team.game) %>
+  <% end %>
+</h1>
+
+<% if @team.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h2>
+      <%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:
+    </h2>
+    <ul>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="form-group">
+  <%= f.label :name, "Team Name" %>
+  <%= f.text_field :name, class: "form-control", required: "true" %>
+</div>
+<% rosters = Roster.joins(:subscriptions).where("subscriptions.venue_id = #{f.object.game.venue.id}").uniq.map { |r| [r.name, r.id] } %>
+<%= f.fields_for :players do |player_form| %>
+  <div class="card-group mb-3">
+    <div class="card p-3">
+      <div class="form-group">
+        <%= player_form.hidden_field :id %>
+        <%= player_form.label :roster , "Select from roster"%>
+        <%= player_form.select :roster_id,
+                              options_for_select(rosters, :selected => player_form.object.roster_id),
+                              { include_blank: true },
+                              class: "form-control" %>
+      </div>
+    </div>
+    <div class="card p-3">
+      <% if player_form.object.id.nil? %>
+        <p>Or create a new player</p>
+        <div class="form-group">
+          <div class="form-group">
+            <%= player_form.label :roster_name, "Player name" %>
+            <%= player_form.text_field :roster_name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= player_form.label :roster_email, "Player e-mail" %>
+            <%= player_form.email_field :roster_email, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= player_form.label :roster_newsletter, "Subscribe new player" %>
+            <%= player_form.check_box :roster_newsletter, class: "form-control" %>
+          </div>
+        </div>
+      <% else %>
+        <div class="form-group">
+          <%= player_form.label :delete, "Delete player" %>
+          <%= player_form.check_box :delete, class: "form-control" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+<div class="form-group">
+  <%= f.submit "Save team", class: "btn btn-lg btn-primary btn-block" %>
+</div>

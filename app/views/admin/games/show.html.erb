@@ -1,0 +1,30 @@
+<section class="section-form" aria-label="venue">
+  <h1 class="h3 mb-3 font-weight-normal">
+    Back to <%= link_to 'All Games', admin_venue_games_path(@game.venue) %>
+  </h1>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= @game.title %></h5>
+      <p>
+        <%= @game.date %><br />
+      </p>
+      <% @game.rounds.each do |round| %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h6 class="card-title">
+              Round <%= round.order %> - <%= round.title %>
+            </h6>
+            <% round.questions.each do |question| %>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h7 class="card-title"><%= question.title %></h7>
+                  <p><%= question.answer %></p>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

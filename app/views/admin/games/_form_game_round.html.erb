@@ -1,0 +1,21 @@
+<% categories = Category.where.not(:title => :Tiebreaker) %>
+<%= f.fields_for :rounds do |round_form| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <%= round_form.hidden_field :order %>
+      <%= round_form.hidden_field :id %>
+      <h5 class="card-title">Round <%= round_form.object.order %></h5>
+      <div class="form-group">
+        <%= round_form.label :title, "Category Title" %>
+        <%= round_form.text_field :title, class: "form-control", required: "true" %>
+      </div>
+      <% if round_form.object.id.nil? %>
+        <div class="form-group">
+          <%= round_form.label :category %>
+          <%= round_form.collection_select :category_id, categories, :id, :title, {:prompt=>true}, {class: "form-control"} %>
+        </div>
+      <% end %>
+      <%= render :partial => "form_question", :locals => { :round_form => round_form } %>
+    </div>
+  </div>
+<% end %>

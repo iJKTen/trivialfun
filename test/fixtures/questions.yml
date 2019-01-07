@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  answer: MyText
+  order: 1
+  round: one
+
+two:
+  title: MyString
+  answer: MyText
+  order: 1
+  round: two

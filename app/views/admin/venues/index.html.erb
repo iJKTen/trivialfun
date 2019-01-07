@@ -1,0 +1,30 @@
+<section>
+  <h1 class="h3 mb-3 font-weight-normal">All Venues</h1>
+  <% if current_user.super_user? %>
+    <p><%= link_to 'Create venue', new_admin_venue_path %></p>
+  <% end %>
+
+  <%= render :partial => "/forms/flash" %>
+
+  <% @venues.each do |venue| %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= venue.name %></h5>
+        <% if current_user.super_user? %>
+          <%= link_to 'Accounts', admin_venue_accounts_path(venue), class: "card-link" %>
+        <% end %>
+        <%= link_to 'Show Games', admin_venue_games_path(venue), class: "card-link" %>
+        <%= link_to 'Show venue', admin_venue_path(venue), class: "card-link" %>
+        <%= link_to 'Edit venue', edit_admin_venue_path(venue), class: "card-link" %>
+        <% if venue.games.count > 0 %>
+          <%= link_to 'Statistics', statistics_admin_venue_path(venue), class: "card-link" %>
+        <% end %>
+        <% if current_user.super_user? %>
+          <%= link_to 'Delete venue', admin_venue_path(venue),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: "card-link link-danger"  %>
+        <% end %>
+      </div>
+    </div><br />
+  <% end %>
+</section>

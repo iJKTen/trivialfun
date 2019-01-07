@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyText
+  phone: MyString
+  total_rounds_per_game: 1
+  total_questions_per_round: 1
+  maximum_players_per_team: 1
+
+two:
+  name: MyString
+  address: MyText
+  phone: MyString
+  total_rounds_per_game: 1
+  total_questions_per_round: 1
+  maximum_players_per_team: 1
