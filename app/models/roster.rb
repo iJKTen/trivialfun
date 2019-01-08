@@ -19,4 +19,8 @@ class Roster < ApplicationRecord
     roster
   end
 
+  def times_played
+    Player.where(:roster => self).count
+  end
+
 end

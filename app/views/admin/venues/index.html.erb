@@ -7,7 +7,7 @@
   <%= render :partial => "/forms/flash" %>
 
   <% @venues.each do |venue| %>
-    <div class="card">
+    <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title"><%= venue.name %></h5>
         <% if current_user.super_user? %>
@@ -19,6 +19,7 @@
         <% if venue.games.count > 0 %>
           <%= link_to 'Statistics', statistics_admin_venue_path(venue), class: "card-link" %>
         <% end %>
+        <%= link_to 'Subscriptions', subscriptions_admin_venue_path(venue), class: "card-link" %>
         <% if current_user.super_user? %>
           <%= link_to 'Delete venue', admin_venue_path(venue),
               method: :delete,

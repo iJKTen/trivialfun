@@ -1,7 +1,7 @@
 class Admin::VenuesController < ApplicationController
   before_action :super_user_only, only: [:new, :create, :destroy]
-  before_action :venue_only, only: [:index, :show, :edit, :update, :statistics]
-  before_action :get_venue, only: [:show, :edit, :update, :destroy, :statistics]
+  before_action :venue_only, only: [:index, :show, :edit, :update, :statistics, :subscriptions]
+  before_action :get_venue, only: [:show, :edit, :update, :destroy, :statistics, :subscriptions]
 
   def index
     if current_user.super_user?
@@ -60,6 +60,11 @@ class Admin::VenuesController < ApplicationController
     @most_player_played = @venue.most_player_played
     @most_tiebreaker_playing_teams = @venue.most_tiebreaker_playing_teams
     @most_tiebreaker_winning_teams = @venue.most_tiebreaker_winning_teams
+  end
+
+  def subscriptions
+    @subscriptions = Subscription.where(:venue => @venue)
+    @subscriptions = @subscriptions.sort{|a,b| b.roster.times_played <=> a.roster.times_played}
   end
 
   private

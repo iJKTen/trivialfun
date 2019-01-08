@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root 'pages#home'
   get '/admin', controller: "pages", action: "admin"
 
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :venues do
       member do
         get :statistics
+        get :subscriptions
       end
       resources :accounts
       resources :games, shallow: true do

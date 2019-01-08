@@ -1,0 +1,22 @@
+<section>
+  <h1 class="h3 mb-3 font-weight-normal">
+    Showing subscriptions for <%= link_to @venue.name, admin_venues_path %>
+  </h1>
+
+  <% @subscriptions.each do |subscription| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= subscription.roster.name %></h5>
+        <p>
+          <%= subscription.roster.email %><br />
+          Played <%= pluralize(subscription.roster.times_played, "time") %><br />
+          <% if subscription.newsletter %>
+            Subscribed: <span class="text-success">Yes</span>
+          <% else %>
+            Subscribed: <span class="text-danger">No</span>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</section>
