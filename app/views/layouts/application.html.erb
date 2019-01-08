@@ -19,5 +19,14 @@
     <div class="container">
       <%= yield %>
     </div>
+    <footer>
+      <% if user_signed_in? %>
+        <section>
+          <div class="text-center align-items-center p-3 px-md-4 mb-3 border-top">
+            Using questions from open trivia database https://github.com/el-cms/Open-trivia-database
+          </div>
+        </section>
+      <% end %>
+    </footer>
   </body>
 </html>
