@@ -14,6 +14,7 @@ class Venue < ApplicationRecord
     total_rounds_per_game = total_rounds_per_game&.nonzero? ? total_rounds_per_game : 4
     total_questions_per_round = total_questions_per_round&.nonzero? ? total_questions_per_round : 5
     maximum_players_per_team = maximum_players_per_team&.nonzero? ? maximum_players_per_team : 2
+    time_to_answer_question_in_seconds = time_to_answer_question_in_seconds.nonzero? ? time_to_answer_question_in_seconds : 120
   end
 
   def subscribe(roster, newsletter)

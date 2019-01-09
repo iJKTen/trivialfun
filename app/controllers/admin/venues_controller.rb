@@ -79,7 +79,8 @@ class Admin::VenuesController < ApplicationController
 
     def venue_params
       params.require(:venue).permit(:name, :address, :phone,
-                                    :total_rounds_per_game, :total_questions_per_round, :maximum_players_per_team)
+                                    :total_rounds_per_game, :total_questions_per_round,
+                                    :maximum_players_per_team, :time_to_answer_question_in_seconds)
     end
 
     def get_venue

@@ -33,7 +33,7 @@ window.onload = function() {
       $clone.show();
       setTimeout(function() {
         $sectionToScroll.find("p").fadeOut();
-      }, 121000);
+      }, fade_question_in_mseconds);
     });
   }
 

@@ -58,12 +58,10 @@ html.play {
 }
 .progress-value.red {
     background-color: red;
-    animation: progress-3 120s ease-in-out forwards;
-    -webkit-animation: progress-3 120s ease-in-out forwards;
 }
 
 /* animation */
- @keyframes progress-3 {
+ @keyframes play-progress {
   from {
     width: 0;
   }
@@ -71,7 +69,7 @@ html.play {
     width: 100%;
   }
 }
- @-webkit-keyframes progress-3 {
+ @-webkit-keyframes play-progress {
   from {
     width: 0;
   }
