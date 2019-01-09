@@ -14,10 +14,20 @@
  */
 @import "bootstrap";
 
+html {
+  height: 100%;
+}
+
 body {
   // background-color: #F7F9FB;
+  position: relative;
+  min-height: 100%;
   color: #FFF;
   background-color: #222;
+}
+
+body > div.container {
+  padding-bottom: 80px;
 }
 
 .card {
@@ -30,6 +40,8 @@ body {
 }
 
 footer {
+  height:75px;
+  position: absolute;
   bottom: 0;
   width: 100%;
 }
