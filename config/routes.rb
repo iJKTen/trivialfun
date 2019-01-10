@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
   get '/admin', controller: "pages", action: "admin"
+  get '/admin/credits', controller: "pages", action: "credits"
 
   devise_for :users, :skip => [:registrations], controllers: {
     session: 'users/sessions'

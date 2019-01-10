@@ -12,6 +12,11 @@
           <li class="nav-item">
 
           </li>
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Credits', admin_credits_path, class: "nav-link" %>
+          </li>
+          <% end %>
           <li class="nav-item">
             <%= link_to 'Sign out', destroy_user_session_url, method: :delete,
                 class: "btn bg-danger text-white" %>
