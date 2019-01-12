@@ -11,6 +11,9 @@ class Admin::PromotionsController < ApplicationController
     @promotion_form = PromotionForm.new(promotional_params)
     @promotion_form = @venue.name
     PromotionMailer.with(promotion: @promotion_form).promotion_email.deliver_later
+    respond_to do |format|
+      format.html { redirect_to admin_venues_path, notice: 'Promotion was scheduled to be sent.' }
+    end
   end
 
   private
