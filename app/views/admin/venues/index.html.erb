@@ -18,8 +18,9 @@
         <%= link_to 'Edit venue', edit_admin_venue_path(venue), class: "card-link" %>
         <% if venue.games.count > 0 %>
           <%= link_to 'Statistics', statistics_admin_venue_path(venue), class: "card-link" %>
+          <%= link_to 'Subscriptions', subscriptions_admin_venue_path(venue), class: "card-link" %>
+          <%= link_to 'Send Promotions', new_admin_venue_promotion_path(venue), class: "card-link" %>
         <% end %>
-        <%= link_to 'Subscriptions', subscriptions_admin_venue_path(venue), class: "card-link" %>
         <% if current_user.super_user? %>
           <%= link_to 'Delete venue', admin_venue_path(venue),
               method: :delete,

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
         get :statistics
         get :subscriptions
       end
+      resources :promotions, only: [:new, :create]
       resources :accounts
       resources :games, shallow: true do
         member do

@@ -1,0 +1,41 @@
+<h1 class="h3 mb-3 font-weight-normal">
+  Back to <%= link_to 'All Venues', admin_venues_path %>
+</h1>
+
+<% if @promotion_form.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <h2>
+      <%= pluralize(@promotion_form.errors.count, "error") %> prohibited this promotion from being sent:
+    </h2>
+    <ul>
+      <% @promotion_form.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @promotion_form, url: admin_venue_promotions_path(@venue), local: true do |f| %>
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Send Promotions</h5>
+    <div class="form-group">
+      <%= f.label :recipient_team, "Send Promotion to" %>
+      <%= f.select :recipient_team, options_for_select(@winning_teams),
+                             { include_blank: true }, :required => true,
+                             class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :subject, "Subject line" %>
+      <%= f.text_field :subject, class: "form-control", required: "true" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :promotional_text, "Promotional line" %>
+      <%= f.text_field :promotional_text, class: "form-control", required: "true" %>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <%= f.submit "Submit", class: "btn btn-lg btn-primary btn-block" %>
+</div>
+<% end %>
