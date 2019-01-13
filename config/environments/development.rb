@@ -62,10 +62,10 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
-    :address => "smtp.mailgun.org",
+    :address => "in-v3.mailjet.com",
     :port => 587,
-    :domain => "MYDOMAIN.mailgun.org",
-    :user_name => "postmaster@MYDOMAIN.mailgun.org",
-    :password => "MYPASSWORD"
+    :domain => "trivial.fun",
+    :user_name => "885596513ee6c8d22c92bd955407e11a",
+    :password => "35eac586b1ad17b7de67b368024d5d6e"
   }
 end

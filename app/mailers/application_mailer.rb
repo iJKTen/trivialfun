@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'no-reply@trivial.fun'
+  default from: 'jai.kirdatt@me.com'
   layout 'mailer'
 end
