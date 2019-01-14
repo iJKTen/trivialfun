@@ -10,8 +10,10 @@ class Admin::PromotionsController < ApplicationController
   def create
     @promotion_form = PromotionForm.new(promotional_params)
     @team = Team.find(@promotion_form.recipient_team)
-    # @promotion_form.venue_name = @venue.name
-    PromotionMailer.with(team: @team, subject: @promotion_form.subject).promotion_email.deliver_later
+
+    PromotionMailer.with(team: @team,
+             promotional_text: @promotion_form.promotional_text,
+                      subject: @promotion_form.subject).promotion_email.deliver_later
     respond_to do |format|
       format.html { redirect_to admin_venues_path, notice: 'Promotion was scheduled to be sent.' }
     end
