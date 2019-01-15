@@ -1,6 +1,6 @@
 <p>
-  Congratulations <%= @player_name %> on winning trivia night at <%= @venue_name %>
-  with team <%= @team.name %>.
+  Congratulations <%= @player_name %> on winning trivia night at <%= @team.game.venue.name %>
+  with your team <%= @team.name %>.
 </p>
 <p>
   Below is your information on how to redeem your winnings!
@@ -9,5 +9,5 @@
   <%= @promotional_text %>
 </p>
 <p>
-  This email was sent you on behalf of <a href="https://trivial.fun">trivial.fun</a>
+  This email was sent to you on behalf of <a href="https://trivial.fun">trivial.fun</a>
 </p>
