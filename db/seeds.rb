@@ -19,44 +19,6 @@ def populate(data)
   }
 end
 
-# data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/arts_and_literature.json'))
-# populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/food_and_drink.json'))
-populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/geography.json'))
-populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/history.json'))
-populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/language.json'))
-populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/mathematics.json'))
-populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/music.json'))
-populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/people_and_places.json'))
-populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/religion_and_mythology.json'))
-populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/science_and_nature.json'))
-populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/sport_and_leisure.json'))
-populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/toys_and_games.json'))
-populate(data)
-
-data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/tech_an_video_games.json'))
-populate(data)
 
 
 
@@ -66,7 +28,7 @@ populate(data)
 # data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/food_and_drink.json'))
 # populate(data)
 
-# tiebreaker = Category.create(:title => 'Tiebreaker')
+tiebreaker = Category.create(:title => 'Tiebreaker')
 # space = Category.create(:title => 'Space')
 # geo = Category.create(:title => 'Geography')
 # history = Category.create(:title => 'History')
@@ -117,13 +79,53 @@ populate(data)
 # Questionnaire.create(:title => "Which is the longest type of cell in a human body?", :answer => "The Neuron", :category_id => sci.id)
 # Questionnaire.create(:title => "what does DC stand for?", :answer => "Direct Current", :category_id => sci.id)
 #
-# Questionnaire.create(:title => "Tiebreaker question 1", :answer => "Tiebreaker answer 1", :category_id => tiebreaker.id)
-# Questionnaire.create(:title => "Tiebreaker question 2", :answer => "Tiebreaker answer 2", :category_id => tiebreaker.id)
-# Questionnaire.create(:title => "Tiebreaker question 3", :answer => "Tiebreaker answer 3", :category_id => tiebreaker.id)
-# Questionnaire.create(:title => "Tiebreaker question 4", :answer => "Tiebreaker answer 4", :category_id => tiebreaker.id)
-# Questionnaire.create(:title => "Tiebreaker question 5", :answer => "Tiebreaker answer 5", :category_id => tiebreaker.id)
-# Questionnaire.create(:title => "Tiebreaker question 6", :answer => "Tiebreaker answer 6", :category_id => tiebreaker.id)
-# Questionnaire.create(:title => "Tiebreaker question 7", :answer => "Tiebreaker answer 7", :category_id => tiebreaker.id)
-# Questionnaire.create(:title => "Tiebreaker question 8", :answer => "Tiebreaker answer 8", :category_id => tiebreaker.id)
-# Questionnaire.create(:title => "Tiebreaker question 9", :answer => "Tiebreaker answer 9", :category_id => tiebreaker.id)
-# Questionnaire.create(:title => "Tiebreaker question 10", :answer => "Tiebreaker answer 10", :category_id => tiebreaker.id)
+Questionnaire.create(:title => "Tiebreaker question 1", :answer => "Tiebreaker answer 1", :category_id => tiebreaker.id)
+Questionnaire.create(:title => "Tiebreaker question 2", :answer => "Tiebreaker answer 2", :category_id => tiebreaker.id)
+Questionnaire.create(:title => "Tiebreaker question 3", :answer => "Tiebreaker answer 3", :category_id => tiebreaker.id)
+Questionnaire.create(:title => "Tiebreaker question 4", :answer => "Tiebreaker answer 4", :category_id => tiebreaker.id)
+Questionnaire.create(:title => "Tiebreaker question 5", :answer => "Tiebreaker answer 5", :category_id => tiebreaker.id)
+Questionnaire.create(:title => "Tiebreaker question 6", :answer => "Tiebreaker answer 6", :category_id => tiebreaker.id)
+Questionnaire.create(:title => "Tiebreaker question 7", :answer => "Tiebreaker answer 7", :category_id => tiebreaker.id)
+Questionnaire.create(:title => "Tiebreaker question 8", :answer => "Tiebreaker answer 8", :category_id => tiebreaker.id)
+Questionnaire.create(:title => "Tiebreaker question 9", :answer => "Tiebreaker answer 9", :category_id => tiebreaker.id)
+Questionnaire.create(:title => "Tiebreaker question 10", :answer => "Tiebreaker answer 10", :category_id => tiebreaker.id)
+
+
+# data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/arts_and_literature.json'))
+# populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/food_and_drink.json'))
+populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/geography.json'))
+populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/history.json'))
+populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/language.json'))
+populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/mathematics.json'))
+populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/music.json'))
+populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/people_and_places.json'))
+populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/religion_and_mythology.json'))
+populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/science_and_nature.json'))
+populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/sport_and_leisure.json'))
+populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/toys_and_games.json'))
+populate(data)
+
+data = JSON.load(open('https://raw.githubusercontent.com/el-cms/Open-trivia-database/master/en/todo/tech_an_video_games.json'))
+populate(data)

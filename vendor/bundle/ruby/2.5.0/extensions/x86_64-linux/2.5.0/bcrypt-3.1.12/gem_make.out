@@ -1,0 +1,19 @@
+current directory: /var/www/trivial.fun/code/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+/home/trivialfun/.rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20190106-1187-15a3lad.rb extconf.rb
+creating Makefile
+
+current directory: /var/www/trivial.fun/code/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" clean
+
+current directory: /var/www/trivial.fun/code/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.so
+
+current directory: /var/www/trivial.fun/code/vendor/bundle/ruby/2.5.0/gems/bcrypt-3.1.12/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -m 0755 bcrypt_ext.so ./.gem.20190106-1187-jk12rr

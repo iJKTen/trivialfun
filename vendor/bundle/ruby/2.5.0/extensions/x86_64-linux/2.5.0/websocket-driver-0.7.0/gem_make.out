@@ -1,0 +1,15 @@
+current directory: /var/www/trivial.fun/code/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+/home/trivialfun/.rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20190106-1187-nlp9nx.rb extconf.rb
+creating Makefile
+
+current directory: /var/www/trivial.fun/code/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /var/www/trivial.fun/code/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /var/www/trivial.fun/code/vendor/bundle/ruby/2.5.0/gems/websocket-driver-0.7.0/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -m 0755 websocket_mask.so ./.gem.20190106-1187-zz1swd
